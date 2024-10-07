@@ -28,7 +28,11 @@ public class HashTable<K, V> {
     }
     public void remove(K key){
         int index = hash(key);
-        array[index] = null;
+        for (var i : array[index]){
+            if (i.getKey() == key){
+                array[index].remove(i);
+            }
+        }
         size--;
     }
     public int size() {
